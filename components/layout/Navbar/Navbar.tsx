@@ -4,32 +4,66 @@ import useGetUserProfile from "@/util/hooks/user/showProfile";
 import Image from "next/image";
 import React from "react";
 import MenuSlider from "../MenuSlider/MenuSlider";
+import { HambergerMenu, Menu } from "iconsax-react";
 
 function Navbar() {
   const getInfo = useGetUserProfile("lounge");
 
-  const hexToRgba = (hex: string, opacity: number) => {
+  const hexToRgba = (hex: string, opacity: number, tone: number = 1) => {
     const bigint = parseInt(hex.slice(1), 16);
-    const r = (bigint >> 16) & 255;
-    const g = (bigint >> 8) & 255;
-    const b = bigint & 255;
+    let r = (bigint >> 16) & 255;
+    let g = (bigint >> 8) & 255;
+    let b = bigint & 255;
+
+    // Adjust the tone
+    r = Math.min(255, Math.max(0, Math.floor(r * tone)));
+    g = Math.min(255, Math.max(0, Math.floor(g * tone)));
+    b = Math.min(255, Math.max(0, Math.floor(b * tone)));
 
     return `rgba(${r}, ${g}, ${b}, ${opacity})`;
   };
 
   if (!getInfo?.data?.profile) {
-    return <div>Loading...</div>;
+    return (
+      <div>
+        <svg className="h-6 w-6 animate-spin" viewBox="3 3 18 18">
+          <path
+            className="fill-red-400/20"
+            d="M12 5C8.13401 5 5 8.13401 5 12C5 15.866 8.13401 19 12 19C15.866 19 19 15.866 19 12C19 8.13401 15.866 5 12 5ZM3 12C3 7.02944 7.02944 3 12 3C16.9706 3 21 7.02944 21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12Z"
+          ></path>
+          <path
+            className="fill-red-400"
+            d="M16.9497 7.05015C14.2161 4.31648 9.78392 4.31648 7.05025 7.05015C6.65973 7.44067 6.02656 7.44067 5.63604 7.05015C5.24551 6.65962 5.24551 6.02646 5.63604 5.63593C9.15076 2.12121 14.8492 2.12121 18.364 5.63593C18.7545 6.02646 18.7545 6.65962 18.364 7.05015C17.9734 7.44067 17.3403 7.44067 16.9497 7.05015Z"
+          ></path>
+        </svg>
+      </div>
+    );
   }
 
   const { firstColor, secondColor } = getInfo.data.profile;
-  const secondColorWithOpacity = hexToRgba(secondColor, 0);
+  const secondColorWithOpacity = hexToRgba(secondColor, 0, 1.5);
+
+  const firstColorWithOpacity = hexToRgba(firstColor, 1, 0.8);
+  const firstColorLight = hexToRgba(firstColor, 0.5, 1.5);
 
   // Ensure colors are defined before using them
   if (!firstColor || !secondColor) {
-    return <div>Loading...</div>;
+    return (
+      <div>
+        <svg className="h-6 w-6 animate-spin" viewBox="3 3 18 18">
+          <path
+            className="fill-red-400/20"
+            d="M12 5C8.13401 5 5 8.13401 5 12C5 15.866 8.13401 19 12 19C15.866 19 19 15.866 19 12C19 8.13401 15.866 5 12 5ZM3 12C3 7.02944 7.02944 3 12 3C16.9706 3 21 7.02944 21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12Z"
+          ></path>
+          <path
+            className="fill-red-400"
+            d="M16.9497 7.05015C14.2161 4.31648 9.78392 4.31648 7.05025 7.05015C6.65973 7.44067 6.02656 7.44067 5.63604 7.05015C5.24551 6.65962 5.24551 6.02646 5.63604 5.63593C9.15076 2.12121 14.8492 2.12121 18.364 5.63593C18.7545 6.02646 18.7545 6.65962 18.364 7.05015C17.9734 7.44067 17.3403 7.44067 16.9497 7.05015Z"
+          ></path>
+        </svg>
+      </div>
+    );
   }
 
-  // Avoid issues with undefined colors in the class name
   const backgroundStyle = {
     backgroundImage: `linear-gradient(to bottom, ${firstColor}, ${secondColorWithOpacity})`,
     height: "120px",
@@ -39,13 +73,17 @@ function Navbar() {
     color: firstColor,
   };
 
+  console.log(firstColorLight);
+
   const backStyle = {
-    backgroundColor: firstColor,
+    backgroundColor: firstColorLight,
+    border: "1px solid",
+    borderColor: firstColor,
   };
 
   return (
     <div style={backgroundStyle}>
-      <div className=" w-full justify-center flex flex-col gap-y-10  items-center ">
+      <div className=" w-full justify-center flex flex-col gap-y-10  items-center px-6 ">
         <div className=" flex items-center h-10 w-full relative justify-between gap-10 mt-10">
           <div className=" border-t  border-2 rounded-xl w-full border-white relative flex justify-center items-center"></div>
           <div className=" flex flex-col ">
@@ -65,12 +103,20 @@ function Navbar() {
 
         <div
           style={backStyle}
-          className=" w-full h-full   border-gray-400 rounded-lg "
+          className=" w-full h-full mt-4 border  flex  rounded-2xl items-center justify-between "
         >
-          <MenuSlider
-            data={getInfo?.data?.profile}
-            focused={(e: any) => console.log(e)}
-          />
+          <div className=" w-full max-w-[320px]">
+            <MenuSlider
+              data={getInfo?.data?.profile}
+              darkColor={firstColorWithOpacity}
+              lightColor={firstColorLight}
+              focused={(e: any) => console.log(e)}
+            />
+          </div>
+
+          <div className=" w-full max-w-[40px]">
+            <HambergerMenu size={24} color={firstColorLight} />
+          </div>
         </div>
       </div>
     </div>

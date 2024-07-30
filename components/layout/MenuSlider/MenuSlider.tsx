@@ -10,8 +10,10 @@ import Image from "next/image";
 interface sliderProps {
   focused: (value: number) => void;
   data: any;
+  darkColor: string;
+  lightColor: string;
 }
-function MenuSlider({ focused, data }: sliderProps) {
+function MenuSlider({ focused, data, darkColor, lightColor }: sliderProps) {
   const getCategory = useGetCategoryList("lounge");
   const [activeSlide, setActiveSlide] = useState<number>(0);
   useEffect(() => {
@@ -19,30 +21,19 @@ function MenuSlider({ focused, data }: sliderProps) {
   }, [activeSlide, focused]);
   return (
     <Swiper
-      //   effect={"coverflow"}
       spaceBetween={20}
       slideToClickedSlide={true}
-      slidesPerView={2.5}
+      slidesPerView={3}
+      slideActiveClass="swiper-slide-active"
+      // centeredSlides
       centeredSlides
       style={{
-        backgroundColor: data?.firstColor,
         borderRadius: "10px",
+        // backgroundColor: lightColor,
       }}
-      //   breakpoints={{
-      //     768: {
-      //       slidesPerView: 4,
-      //       spaceBetween: 20,
-      //     },
-      //     1024: {
-      //       slidesPerView: 2.3,
-      //       spaceBetween: 90,
-      //     },
-      //   }}
-
       onActiveIndexChange={(e) => setActiveSlide(e.activeIndex)}
-      //   initialSlide={4}
       grabCursor={true}
-      className=" h-[68px] "
+      // className=" h-[68px] "
       modules={[EffectCoverflow, Pagination]}
     >
       {getCategory?.data?.allCategory?.categories.map(
@@ -50,13 +41,14 @@ function MenuSlider({ focused, data }: sliderProps) {
           return (
             <SwiperSlide
               style={{
-                width: "10px",
+                // width: "10px",
                 height: "60px",
-              }} // Set your desired width and height here
+                backgroundColor: lightColor,
+              }}
               key={index}
-              className={`text-black w-fit backdrop-blur-lg bg-white/20 hover:bg-white/40 duration-200 text-lg  text-center rounded-lg `}
+              className={`text-black w-[70px] max-w-[140px]   cursor-pointer   duration-200 text-lg  text-center rounded-md `}
             >
-              <div className=" flex flex-col justify-center items-center">
+              <div className={` flex flex-col  justify-center items-center `}>
                 <Image
                   alt="logo"
                   className="rounded-full select-none"

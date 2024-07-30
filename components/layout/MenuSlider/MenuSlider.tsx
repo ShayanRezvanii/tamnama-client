@@ -16,9 +16,9 @@ interface sliderProps {
 function MenuSlider({ focused, data, darkColor, lightColor }: sliderProps) {
   const getCategory = useGetCategoryList("lounge");
   const [activeSlide, setActiveSlide] = useState<number>(0);
-  useEffect(() => {
-    focused(activeSlide);
-  }, [activeSlide, focused]);
+  // useEffect(() => {
+  //   focused(activeSlide);
+  // }, [activeSlide, focused]);
   return (
     <Swiper
       spaceBetween={20}
@@ -40,23 +40,28 @@ function MenuSlider({ focused, data, darkColor, lightColor }: sliderProps) {
         (item: any, index: number) => {
           return (
             <SwiperSlide
+              onClick={() => focused(item[0].name)}
               style={{
                 // width: "10px",
                 height: "60px",
                 backgroundColor: lightColor,
               }}
               key={index}
-              className={`text-black w-[70px] max-w-[140px]   cursor-pointer   duration-200 text-lg  text-center rounded-md `}
+              className={`text-black  w-[70px] max-w-[140px]   cursor-pointer   duration-200 text-lg  text-center rounded-md `}
             >
-              <div className={` flex flex-col  justify-center items-center `}>
+              <div
+                className={` flex   ${
+                  activeSlide !== index ? "flex-col " : " h-[60px] gap-1 "
+                }  justify-center items-center `}
+              >
                 <Image
                   alt="logo"
                   className="rounded-full select-none"
-                  width={30}
+                  width={activeSlide !== index ? 30 : 40}
                   height={40}
                   src={`/${item[0].icon}`}
                 />
-                <p className=" text-xs text-white mt-2">{item[0].name}</p>
+                <p className=" text-sm text-white mt-2">{item[0].name}</p>
               </div>
             </SwiperSlide>
           );

@@ -9,7 +9,7 @@ function Categories() {
   const getInfo = useGetUserProfile("lounge");
   const getCategory = useGetCategoryList("lounge");
   const [visible, setVisible] = useState(false);
-  const [height, setHeight] = useState(200);
+  const [height, setHeight] = useState(50);
   const isDraggingRef = useRef(false);
   const initialTouchYRef = useRef(0);
   const grabHandleRef = useRef(null);
@@ -161,7 +161,7 @@ function Categories() {
       <div
         style={{ ...backStyle, height: `${height}px` }}
         //   onClick={() => setVisible(true)}
-        className="w-full rounded-tr-2xl min-h-[200px] z-40 max-h-[600px] flex flex-col justify-start items-center rounded-tl-2xl"
+        className="w-full rounded-tr-2xl min-h-[50px] z-40 max-h-[600px] flex flex-col justify-start items-center rounded-tl-2xl"
       >
         <div
           ref={grabHandleRef}

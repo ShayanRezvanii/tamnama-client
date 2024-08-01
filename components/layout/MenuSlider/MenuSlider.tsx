@@ -19,55 +19,60 @@ function MenuSlider({ focused, data, darkColor, lightColor }: sliderProps) {
   // useEffect(() => {
   //   focused(activeSlide);
   // }, [activeSlide, focused]);
+
   return (
-    <Swiper
-      spaceBetween={20}
-      slideToClickedSlide={true}
-      slidesPerView={3}
-      slideActiveClass="swiper-slide-active"
-      // centeredSlides
-      centeredSlides
-      style={{
-        borderRadius: "10px",
-        // backgroundColor: lightColor,
-      }}
-      onActiveIndexChange={(e) => setActiveSlide(e.activeIndex)}
-      grabCursor={true}
-      // className=" h-[68px] "
-      modules={[EffectCoverflow, Pagination]}
-    >
-      {getCategory?.data?.allCategory?.categories.map(
-        (item: any, index: number) => {
-          return (
-            <SwiperSlide
-              onClick={() => focused(item[0].name)}
-              style={{
-                // width: "10px",
-                height: "60px",
-                backgroundColor: lightColor,
-              }}
-              key={index}
-              className={`text-black  w-[70px] max-w-[140px]   cursor-pointer   duration-200 text-lg  text-center rounded-md `}
-            >
-              <div
-                className={` flex   ${
-                  activeSlide !== index ? "flex-col " : " h-[60px] gap-1 "
-                }  justify-center items-center `}
-              >
-                <Image
-                  alt="logo"
-                  className="rounded-full select-none"
-                  width={activeSlide !== index ? 30 : 40}
-                  height={40}
-                  src={`/${item[0].icon}`}
-                />
-                <p className=" text-sm text-white mt-2">{item[0].name}</p>
-              </div>
-            </SwiperSlide>
-          );
-        }
+    <>
+      {getCategory?.data?.allCategory?.categories ? (
+        <Swiper
+          spaceBetween={20}
+          slideToClickedSlide={true}
+          slidesPerView={getCategory?.data?.allCategory?.categories.length}
+          slideActiveClass="swiper-slide-active"
+          centeredSlides
+          style={{
+            borderRadius: "10px",
+            // backgroundColor: lightColor,
+          }}
+          onActiveIndexChange={(e) => setActiveSlide(e.activeIndex)}
+          grabCursor={true}
+          // className=" h-[68px] "
+          modules={[EffectCoverflow, Pagination]}
+        >
+          {getCategory?.data?.allCategory?.categories.map(
+            (item: any, index: number) => {
+              return (
+                <SwiperSlide
+                  onClick={() => focused(item[0].name)}
+                  style={{
+                    height: "40px",
+                    backgroundColor: lightColor,
+                  }}
+                  key={index}
+                  className={`text-black my-3 ${
+                    activeSlide === index ? "  rounded-md" : "rounded-full"
+                  } shadow-lg w-[70px]   cursor-pointer   duration-200 text-lg  text-center `}
+                >
+                  <div className={` flex   justify-center items-center `}>
+                    <Image
+                      alt="logo"
+                      className=" select-none"
+                      width={30}
+                      height={40}
+                      src={`/${item[0].icon}`}
+                    />
+                    {activeSlide === index ? (
+                      <p className=" text-sm text-white ">{item[0].name}</p>
+                    ) : null}
+                  </div>
+                </SwiperSlide>
+              );
+            }
+          )}
+        </Swiper>
+      ) : (
+        <p>loading</p>
       )}
-    </Swiper>
+    </>
   );
 }
 

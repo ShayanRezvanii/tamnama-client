@@ -4,12 +4,14 @@ import useGetCategoryList from "@/util/hooks/Category/GetCategory";
 import useGetUserProfile from "@/util/hooks/user/showProfile";
 import Image from "next/image";
 import React, { useEffect, useRef, useState } from "react";
+import { AnimatePresence, motion } from "framer-motion";
+import { ArrowDown2 } from "iconsax-react";
 
 function Categories() {
   const getInfo = useGetUserProfile("lounge");
   const getCategory = useGetCategoryList("lounge");
   const [visible, setVisible] = useState(false);
-  const [height, setHeight] = useState(50);
+  const [height, setHeight] = useState(90);
   const isDraggingRef = useRef(false);
   const initialTouchYRef = useRef(0);
   const grabHandleRef = useRef(null);
@@ -38,6 +40,12 @@ function Categories() {
       sertFirstDarkColor(firstColorWithOpacity);
     }
   });
+
+  useEffect(() => {
+    if (height > 180) {
+      setHeight(600);
+    }
+  }, [height]);
 
   useEffect(() => {
     const handleMouseMove = (e: any) => {
@@ -111,11 +119,31 @@ function Categories() {
     opacity: 1,
   };
 
+  const container = {
+    hidden: { opacity: 1, scale: 0 },
+    visible: {
+      opacity: 1,
+      scale: 1,
+      transition: {
+        delayChildren: 0.3,
+        staggerChildren: 0.2,
+      },
+    },
+  };
+
+  const item = {
+    hidden: { y: 20, opacity: 0 },
+    visible: {
+      y: 0,
+      opacity: 1,
+    },
+  };
+
   return (
     <div
       className={`w-full ${
         visible ? "hidden" : ""
-      } min-h-screen overflow-y-hidden flex flex-col justify-between z-20 absolute bg-white`}
+      } min-h-screen overflow-y-hidden flex flex-col justify-between z-40 absolute bg-white`}
     >
       <div className="w-full flex flex-col justify-center items-center h-40">
         <div
@@ -158,39 +186,65 @@ function Categories() {
         </div>
       </div>
 
-      <div
-        style={{ ...backStyle, height: `${height}px` }}
-        //   onClick={() => setVisible(true)}
-        className="w-full rounded-tr-2xl min-h-[50px] z-40 max-h-[600px] flex flex-col justify-start items-center rounded-tl-2xl"
-      >
-        <div
-          ref={grabHandleRef}
-          className="border-2 mt-4 w-8 cursor-grab rounded-2xl h-1 border-white"
+      <AnimatePresence>
+        <motion.div
+          style={{ ...backStyle, height: `${height}px` }}
           onMouseDown={handleMouseDown}
           onTouchStart={handleTouchStart}
-        ></div>
+          initial={{ opacity: 0, translateY: 30 }}
+          exit={{ opacity: 0, translateY: 30 }}
+          animate={{ opacity: 1, translateY: 0 }}
+          transition={{ duration: 0.5 }}
+          //   onClick={() => setVisible(true)}
+          className="w-full relative rounded-tr-2xl min-h-[90px] z-40 max-h-[500px] flex flex-col justify-start items-center rounded-tl-2xl"
+        >
+          <div
+            className={` absolute ${
+              height > 100 ? "hidden" : null
+            } bottom-24 flex-col flex items-center`}
+          >
+            <p style={{ color: firstDarkColor }}>menu</p>
+            <ArrowDown2 size={24} className=" animate-bounce" />
+          </div>
 
-        <div className=" grid  gap-4 h-full w-full rounded-2xl grid-cols-3 px-10 items-start mt-10 justify-center ">
-          {getCategory.data?.allCategory?.categories.map((item: any) => {
-            return (
-              <div
-                onClick={() => setVisible(true)}
-                style={backColorStyle}
-                className={` text-white cursor-pointer backdrop-blur-lg duration-200  rounded-lg shadow-md  w-full max-w-[90px] h-[90px] max-h-[90px] flex flex-col justify-center items-center`}
-              >
-                <Image
-                  alt="logo"
-                  className="rounded-full select-none"
-                  width={40}
-                  height={40}
-                  src={`/${item[0].icon}`}
-                />
-                {item[0].name}
-              </div>
-            );
-          })}
-        </div>
-      </div>
+          <div
+            ref={grabHandleRef}
+            onClick={() => setHeight(90)}
+            className="border-2 mt-4 w-8 cursor-grab rounded-2xl h-1 border-white"
+          ></div>
+
+          {height > 100 ? (
+            <motion.ul
+              variants={container}
+              initial="hidden"
+              animate="visible"
+              className="container grid  gap-4 h-fit w-full rounded-2xl grid-cols-3  px-10 items-start mt-10 justify-center "
+            >
+              {getCategory.data?.allCategory?.categories.map(
+                (itemData: any) => {
+                  return (
+                    <motion.li
+                      onClick={() => setVisible(true)}
+                      style={backColorStyle}
+                      variants={item}
+                      className={` item text-white cursor-pointer backdrop-blur-lg duration-200  rounded-lg shadow-md  w-full max-w-[90px] h-[90px] max-h-[90px] flex flex-col justify-center items-center`}
+                    >
+                      <Image
+                        alt="logo"
+                        className="rounded-full select-none"
+                        width={40}
+                        height={40}
+                        src={`/${itemData[0].icon}`}
+                      />
+                      {itemData[0].name}
+                    </motion.li>
+                  );
+                }
+              )}
+            </motion.ul>
+          ) : null}
+        </motion.div>
+      </AnimatePresence>
     </div>
   );
 }

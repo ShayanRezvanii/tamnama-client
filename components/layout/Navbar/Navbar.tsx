@@ -9,7 +9,7 @@ import { HambergerMenu } from "iconsax-react";
 import ProductCard from "../ProductCard/ProductCard";
 import { getProductByCategory } from "@/util/api/addProduct/getProductByCategory";
 import { useMutation } from "@tanstack/react-query";
-
+import { motion } from "framer-motion";
 interface Product {
   _id: number;
   title: string;
@@ -139,26 +139,29 @@ function Navbar() {
 
         <div
           style={backStyle}
-          className="w-full h-full mt-4 border flex rounded-2xl items-center justify-between"
+          className="w-full h-full mt-4 sticky backdrop-blur-md  z-30 top-2 border flex rounded-2xl items-center justify-between"
         >
-          <div className="w-full max-w-[320px]">
-            <MenuSlider
-              data={profile}
-              darkColor={firstColorWithOpacity}
-              lightColor={firstColorLight}
-              focused={(e: any) => {
-                getProductByCategoryMutation.mutate({
-                  shopName: "lounge",
-                  category: e,
-                });
-              }}
-            />
+          <div className="w-full  max-w-[320px]">
+            {profile ? (
+              <MenuSlider
+                data={profile}
+                darkColor={firstColorWithOpacity}
+                lightColor={firstColorLight}
+                focused={(e: any) => {
+                  getProductByCategoryMutation.mutate({
+                    shopName: "lounge",
+                    category: e,
+                  });
+                }}
+              />
+            ) : null}
           </div>
 
           <div className="w-full max-w-[40px]">
             <HambergerMenu size={24} color={firstColorLight} />
           </div>
         </div>
+
         {foundedProducts.foundedProduct?.length > 0 && (
           <div className="w-full flex-col flex gap-y-4">
             {foundedProducts?.foundedProduct.map((item: Product) => (

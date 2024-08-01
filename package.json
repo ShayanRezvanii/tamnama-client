@@ -11,6 +11,7 @@
   "dependencies": {
     "@tanstack/react-query": "^5.51.15",
     "@tanstack/react-query-devtools": "^5.51.15",
+    "@types/swiper": "^6.0.0",
     "axios": "^1.7.2",
     "framer-motion": "^11.3.19",
     "iconsax-react": "^0.0.8",

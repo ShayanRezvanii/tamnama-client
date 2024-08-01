@@ -3,7 +3,7 @@
 
 import useGetUserProfile from "@/util/hooks/user/showProfile";
 import Image from "next/image";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import MenuSlider from "../MenuSlider/MenuSlider";
 import { HambergerMenu } from "iconsax-react";
 import ProductCard from "../ProductCard/ProductCard";
@@ -26,7 +26,11 @@ interface Profile {
   shopName: string;
 }
 
-function Navbar() {
+interface navbarProps {
+  selectedCat?: string;
+}
+
+function Navbar({ selectedCat }: navbarProps) {
   const getInfo = useGetUserProfile("lounge");
   const [foundedProducts, setFoundedProducts] = useState<{
     foundedProduct: Product[];
@@ -42,6 +46,14 @@ function Navbar() {
     },
   });
 
+  useEffect(() => {
+    if (selectedCat !== undefined) {
+      getProductByCategoryMutation.mutate({
+        shopName: "lounge",
+        category: selectedCat,
+      });
+    }
+  }, [selectedCat]);
   const hexToRgba = (
     hex: string,
     opacity: number,
@@ -147,6 +159,7 @@ function Navbar() {
                 data={profile}
                 darkColor={firstColorWithOpacity}
                 lightColor={firstColorLight}
+                initialValue={selectedCat}
                 focused={(e: any) => {
                   getProductByCategoryMutation.mutate({
                     shopName: "lounge",

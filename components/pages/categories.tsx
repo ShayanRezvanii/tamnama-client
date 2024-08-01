@@ -7,7 +7,11 @@ import React, { useEffect, useRef, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { ArrowDown2 } from "iconsax-react";
 
-function Categories() {
+interface categoriesProps {
+  selectedCat: (e: string) => void;
+}
+
+function Categories({ selectedCat }: categoriesProps) {
   const getInfo = useGetUserProfile("lounge");
   const getCategory = useGetCategoryList("lounge");
   const [visible, setVisible] = useState(false);
@@ -224,7 +228,10 @@ function Categories() {
                 (itemData: any) => {
                   return (
                     <motion.li
-                      onClick={() => setVisible(true)}
+                      onClick={() => {
+                        setVisible(true);
+                        selectedCat(itemData[0].name);
+                      }}
                       style={backColorStyle}
                       variants={item}
                       className={` item text-white cursor-pointer backdrop-blur-lg duration-200  rounded-lg shadow-md  w-full max-w-[90px] h-[90px] max-h-[90px] flex flex-col justify-center items-center`}

@@ -4,10 +4,13 @@ import React from "react";
 import Navbar from "../layout/Navbar/Navbar";
 import ProductCard from "../layout/ProductCard/ProductCard";
 
-function Products() {
+interface productsProps {
+  selectedCategory?: string;
+}
+function Products({ selectedCategory }: productsProps) {
   return (
     <div className=" flex flex-col">
-      <Navbar />
+      <Navbar selectedCat={selectedCategory} />
     </div>
   );
 }

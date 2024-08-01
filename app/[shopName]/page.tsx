@@ -11,10 +11,12 @@ import ProductCard from "@/components/layout/ProductCard/ProductCard";
 import Categories from "@/components/pages/categories";
 import Products from "@/components/pages/products";
 function Page() {
+  const [selectedCat, setSelectedCat] = useState();
+
   return (
     <div className="flex-col justify-between flex min-h-screen">
-      <Products />
-      <Categories />
+      <Products selectedCategory={selectedCat} />
+      <Categories selectedCat={(e: any) => setSelectedCat(e)} />
     </div>
   );
 }

@@ -1,5 +1,5 @@
 /** @format */
-
+"use client";
 import {
   Call,
   Designtools,
@@ -8,15 +8,31 @@ import {
   Home3,
   InfoCircle,
 } from "iconsax-react";
-import Link from "next/link";
 import React from "react";
+import { useEffect } from "react";
+import {
+  Link,
+  Button,
+  Element,
+  Events,
+  animateScroll as scroll,
+  scrollSpy,
+} from "react-scroll";
 
 function LandingNavbar() {
+  const scrollto = () => {
+    scroll.scrollTo(800);
+  };
   return (
-    <div className=" w-full h-14 bg-[#FF6000]/70 backdrop-blur-lg rounded-lg  flex justify-between items-center p-8  sticky top-4 max-w-[1220px] mx-auto">
+    <div className=" w-full h-14 bg-[#FF6000]/70 z-40 backdrop-blur-lg rounded-3xl border border-white/40  flex justify-between items-center p-8  sticky top-4 max-w-[1220px] mx-auto">
       <div className=" flex justify-center gap-16">
         <Link
-          href={"#"}
+          to="hero"
+          // onClick={scrollto}
+          spy={true}
+          smooth={true}
+          offset={-100}
+          duration={500}
           className=" flex gap-3 text-white p-2 hover:bg-[#FFE6C7]/40 hover:text-white duration-200 rounded-lg  h-full items-center"
         >
           <Home2 />
@@ -24,7 +40,12 @@ function LandingNavbar() {
         </Link>
 
         <Link
-          href={"#"}
+          to="FirstSection"
+          // onClick={scrollto}
+          spy={true}
+          smooth={true}
+          offset={-100}
+          duration={500}
           className=" flex gap-3 p-2 text-white hover:bg-[#FFE6C7]/40 hover:text-white duration-200 rounded-lg  h-full items-center"
         >
           <Designtools />
@@ -32,15 +53,25 @@ function LandingNavbar() {
         </Link>
 
         <Link
-          href={"#"}
+          to="secondSection"
+          // onClick={scrollto}
+          spy={true}
+          smooth={true}
+          offset={-100}
+          duration={500}
           className=" flex gap-3 p-2 text-white  hover:bg-[#FFE6C7]/40 hover:text-white duration-200 rounded-lg  h-full items-center"
         >
           <Call />
-          <p className=" font-semibold">تماس با ما</p>
+          <p className=" font-semibold">ارتباط با ما</p>
         </Link>
 
         <Link
-          href={"#"}
+          to="thirdSection"
+          // onClick={scrollto}
+          spy={true}
+          smooth={true}
+          offset={-100}
+          duration={500}
           className=" flex gap-3 p-2 text-white hover:bg-[#FFE6C7]/40 hover:text-white duration-200 rounded-lg h-full items-center"
         >
           <InfoCircle />

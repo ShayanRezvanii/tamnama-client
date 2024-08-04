@@ -9,17 +9,17 @@ function Hero() {
     <div id="hero" className=" w-full  flex justify-between mt-24 h-fit">
       <div className=" w-full flex flex-col justify-between">
         <div className=" flex flex-col gap-12">
-          <div className=" flex justify-center gap-40 w-full">
-            <div className="  flex-col flex items-center">
-              <h1 className=" text-white text-[100px] ">
+          <div className=" flex flex-col items-center  xl:flex-row justify-center gap-20 lg:gap-40 w-full">
+            <div className="  flex-col flex lg:gap-14 items-center">
+              <h1 className=" text-white text-3xl lg:text-[100px] ">
                 طعم <span className=" text-[#FF6000] ">نما</span>
               </h1>
-              <h1 className=" text-white text-2xl ">
+              <h1 className=" text-white  text-2xl ">
                 منوی دیجیتال و دسترسی آسان
               </h1>
             </div>
 
-            <div className=" bg-white relative w-[390px] h-[390px] rounded-tr-[120px] rounded-tl-[280px] rounded-br-[110px] rounded-bl-3xl ">
+            <div className=" bg-white relative w-[210px] h-[210px] lg:w-[390px] lg:h-[390px] rounded-tr-[120px] rounded-tl-[280px] rounded-br-[110px] rounded-bl-3xl ">
               <Image
                 className=" animate-pulse"
                 src={HeroIcon}
@@ -29,10 +29,10 @@ function Hero() {
             </div>
           </div>
 
-          <div className=" w-full flex flex-col items-center gap-3 justify-center">
+          <div className=" w-full flex flex-col items-center gap-3 lg:gap-10 justify-center">
             <div className=" border-t border-white max-w-[70px] w-full mx-auto"></div>
 
-            <h1 className=" text-[40px] font-semibold rounded-lg text-white">
+            <h1 className=" text-2xl lg:text-[40px]  font-semibold rounded-lg text-white">
               منوی دیجیتال طعم نما
             </h1>
 

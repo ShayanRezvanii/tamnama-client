@@ -9,7 +9,9 @@ function SecondSection() {
       <div className=" w-full flex flex-col justify-between mb-32">
         <div className=" flex  justify-center w-full">
           <div className="  relative flex-col flex items-center w-full gap-y-4">
-            <h1 className=" text-white text-[100px]  ">ارتباط با ما</h1>
+            <h1 className=" text-white text-[80px] lg:text-[100px]  ">
+              ارتباط با ما
+            </h1>
 
             <div className=" flex w-full gap-3 rotate-[24deg] absolute top-20  z-30 flex-col">
               <div className=" border-t border-white/30 max-w-[420px] w-full mx-auto"></div>

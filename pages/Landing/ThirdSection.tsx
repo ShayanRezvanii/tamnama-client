@@ -9,10 +9,12 @@ function ThirdSection() {
     <div id="thirdSection" className=" w-full flex  justify-between  h-fit">
       <div className=" w-full flex flex-col justify-between">
         <div className=" flex justify-between w-full">
-          <div className="  flex-col flex items-start gap-y-4 relative">
-            <h1 className=" text-white text-[110px] z-20 ">درباره ما</h1>
-            <div className="bg-gradient-to-l rounded-tr-[120px]  max-w-[320px]  rounded-bl-[120px] from-[#FF6000] to-white/30 absolute top-20 w-full  rotate-[-190deg] h-10 z-10"></div>
-            <p className=" text-white text-justify">
+          <div className="  flex-col flex items-center lg:items-start gap-y-4 relative">
+            <h1 className=" text-white text-[80px] lg:text-[110px] z-20 ">
+              درباره ما
+            </h1>
+            <div className="bg-gradient-to-l rounded-tr-[120px]  max-w-[320px]  rounded-bl-[120px] from-[#FF6000] to-white/30 absolute top-10 lg:top-20 w-full  rotate-[-190deg] h-10 z-10"></div>
+            <p className=" text-white text-sm leading-5 lg:text-base text-justify">
               پلتفرم منوی دیجیتال "طعم نما" یک ابزار نوآورانه در صنعت
               رستوران‌داری است که به منظور بهبود تجربه مشتریان و کارآمدی مدیریت
               رستوران‌ها طراحی شده است. این پلتفرم امکان مشاهده و انتخاب منوهای

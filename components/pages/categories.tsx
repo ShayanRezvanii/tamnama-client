@@ -12,8 +12,8 @@ interface categoriesProps {
 }
 
 function Categories({ selectedCat }: categoriesProps) {
-  const getInfo = useGetUserProfile("lounge");
-  const getCategory = useGetCategoryList("lounge");
+  const getInfo = useGetUserProfile("t-cafe3");
+  const getCategory = useGetCategoryList("t-cafe3");
   const [visible, setVisible] = useState(false);
   const [height, setHeight] = useState(90);
   const isDraggingRef = useRef(false);

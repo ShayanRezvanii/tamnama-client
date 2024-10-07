@@ -31,7 +31,7 @@ interface navbarProps {
 }
 
 function Navbar({ selectedCat }: navbarProps) {
-  const getInfo = useGetUserProfile("lounge");
+  const getInfo = useGetUserProfile("t-cafe3");
   const [foundedProducts, setFoundedProducts] = useState<{
     foundedProduct: Product[];
   }>({ foundedProduct: [] });
@@ -49,16 +49,22 @@ function Navbar({ selectedCat }: navbarProps) {
   useEffect(() => {
     if (selectedCat !== undefined) {
       getProductByCategoryMutation.mutate({
-        shopName: "lounge",
+        shopName: "t-cafe3",
         category: selectedCat,
       });
     }
   }, [selectedCat]);
+
   const hexToRgba = (
-    hex: string,
+    hex: string | undefined,
     opacity: number,
     tone: number = 1
   ): string => {
+    if (!hex || !hex.startsWith("#") || hex.length !== 7) {
+      // Return a default value or handle the invalid hex case
+      return `rgba(0, 0, 0, ${opacity})`; // Default black color with specified opacity
+    }
+
     const bigint = parseInt(hex.slice(1), 16);
     let r = (bigint >> 16) & 255;
     let g = (bigint >> 8) & 255;
@@ -162,7 +168,7 @@ function Navbar({ selectedCat }: navbarProps) {
                 initialValue={selectedCat}
                 focused={(e: any) => {
                   getProductByCategoryMutation.mutate({
-                    shopName: "lounge",
+                    shopName: "t-cafe3",
                     category: e,
                   });
                 }}

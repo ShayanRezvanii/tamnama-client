@@ -67,6 +67,19 @@
 }.__className_36bd41 {font-family: '__Inter_36bd41', '__Inter_Fallback_36bd41';font-style: normal
 }
 
+/*!*************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[13].oneOf[3].use[1]!./node_modules/next/dist/build/webpack/loaders/next-font-loader/index.js??ruleSet[1].rules[13].oneOf[3].use[2]!./node_modules/next/font/local/target.css?{"path":"app/layout.tsx","import":"","arguments":[{"src":[{"path":"../public/fonts/IRANSans_Medium.woff2","weight":"400","style":"normal"}]}],"variableName":"iranianSans"} ***!
+  \*************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+@font-face {
+font-family: '__iranianSans_0ae70c';
+src: url(/_next/static/media/bea7ea6c6bd42406-s.p.woff2) format('woff2');
+font-display: swap;
+font-weight: 400;
+font-style: normal;
+}@font-face {font-family: '__iranianSans_Fallback_0ae70c';src: local("Arial");ascent-override: 95.23%;descent-override: 55.55%;line-gap-override: 0.00%;size-adjust: 109.58%
+}.__className_0ae70c {font-family: '__iranianSans_0ae70c', '__iranianSans_Fallback_0ae70c';font-weight: 400;font-style: normal
+}
+
 /*!*************************************************************************************************************************************************************************************************************************************************************!*\
   !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[13].oneOf[12].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[13].oneOf[12].use[3]!./app/globals.css ***!
   \*************************************************************************************************************************************************************************************************************************************************************/
@@ -640,17 +653,11 @@ video {
 .top-20 {
   top: 5rem;
 }
-.top-4 {
-  top: 1rem;
-}
-.top-40 {
-  top: 10rem;
-}
-.top-44 {
-  top: 11rem;
-}
 .top-24 {
   top: 6rem;
+}
+.top-4 {
+  top: 1rem;
 }
 .z-10 {
   z-index: 10;
@@ -670,9 +677,6 @@ video {
 .m-8 {
   margin: 2rem;
 }
-.m-4 {
-  margin: 1rem;
-}
 .mx-auto {
   margin-left: auto;
   margin-right: auto;
@@ -684,14 +688,6 @@ video {
 .my-3 {
   margin-top: 0.75rem;
   margin-bottom: 0.75rem;
-}
-.mx-10 {
-  margin-left: 2.5rem;
-  margin-right: 2.5rem;
-}
-.mx-4 {
-  margin-left: 1rem;
-  margin-right: 1rem;
 }
 .mb-10 {
   margin-bottom: 2.5rem;

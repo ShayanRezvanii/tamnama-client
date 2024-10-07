@@ -1,4 +1,4 @@
-// File: /Users/shayanrezvani/Desktop/tamnama-client/app/[shopName]/layout.tsx
+// File: /Users/shayanrezvani/Desktop/Projects/Tamnama/tamnama-client/app/[shopName]/layout.tsx
 import * as entry from '../../../../app/[shopName]/layout.js'
 import type { ResolvingMetadata, ResolvingViewport } from 'next/dist/lib/metadata/types/metadata-interface.js'
 

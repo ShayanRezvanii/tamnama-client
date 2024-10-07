@@ -21,7 +21,7 @@ function MenuSlider({
   lightColor,
   initialValue,
 }: sliderProps) {
-  const getCategory = useGetCategoryList("lounge");
+  const getCategory = useGetCategoryList("t-cafe3");
   const [activeSlide, setActiveSlide] = useState<number>(0);
   const [isInitialSet, setIsInitialSet] = useState<boolean>(false);
   const swiperRef = useRef(null);

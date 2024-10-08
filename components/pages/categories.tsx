@@ -6,14 +6,19 @@ import Image from "next/image";
 import React, { useEffect, useRef, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { ArrowDown2 } from "iconsax-react";
+import { usePathname } from "next/navigation";
 
 interface categoriesProps {
   selectedCat: (e: string) => void;
 }
 
 function Categories({ selectedCat }: categoriesProps) {
-  const getInfo = useGetUserProfile("t-cafe3");
-  const getCategory = useGetCategoryList("t-cafe3");
+  const path = usePathname();
+  const fullString = path;
+  const extractedString = fullString?.replace("/", "");
+
+  const getInfo = useGetUserProfile(extractedString || "");
+  const getCategory = useGetCategoryList(extractedString || "");
   const [visible, setVisible] = useState(false);
   const [height, setHeight] = useState(90);
   const isDraggingRef = useRef(false);
@@ -147,7 +152,7 @@ function Categories({ selectedCat }: categoriesProps) {
     <div
       className={`w-full ${
         visible ? "hidden" : ""
-      } min-h-screen overflow-y-hidden flex flex-col justify-between z-40 absolute bg-white`}
+      } min-h-screen overflow-y-hidden flex flex-col justify-between z-40 absolute  bg-cover bg-center bg-texturebg`}
     >
       <div className="w-full flex flex-col justify-center items-center h-40">
         <div
@@ -171,21 +176,36 @@ function Categories({ selectedCat }: categoriesProps) {
             <p className="text-black text-xs tracking-widest ">
               {getInfo.data.profile.phone}
             </p>
-            <p className=" text-xs">:Tel</p>
+            <p
+              className=" text-xs tracking-widest"
+              style={{ color: firstDarkColor }}
+            >
+              :Tel
+            </p>
           </div>
 
           <div className=" flex justify-center items-center  gap-2">
             <p className="text-black tracking-widest text-xs ">
               {getInfo.data.profile.workTime}
             </p>
-            <p className=" text-xs">:Work</p>
+            <p
+              style={{ color: firstDarkColor }}
+              className=" text-xs tracking-widest"
+            >
+              :Work
+            </p>
           </div>
 
           <div className=" flex justify-center items-center  gap-2">
             <p className="text-black tracking-widest text-xs ">
               {getInfo.data.profile.address}
             </p>
-            <p className=" text-xs">:address</p>
+            <p
+              style={{ color: firstDarkColor }}
+              className=" text-xs tracking-widest"
+            >
+              :address
+            </p>
           </div>
         </div>
       </div>

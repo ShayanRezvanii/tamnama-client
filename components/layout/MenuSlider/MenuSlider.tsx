@@ -1,5 +1,10 @@
 /** @format */
-import { Swiper, SwiperSlide } from "swiper/react";
+import {
+  Swiper,
+  SwiperSlide,
+  Swiper as SwiperType,
+  SwiperRef,
+} from "swiper/react"; // Import SwiperType and SwiperRef
 import { EffectCoverflow, Pagination } from "swiper/modules";
 import "swiper/swiper-bundle.css";
 import { useEffect, useRef, useState } from "react";
@@ -24,7 +29,9 @@ function MenuSlider({
   const getCategory = useGetCategoryList("t-cafe3");
   const [activeSlide, setActiveSlide] = useState<number>(0);
   const [isInitialSet, setIsInitialSet] = useState<boolean>(false);
-  const swiperRef = useRef(null);
+
+  // Define the swiperRef with the correct type
+  const swiperRef = useRef<SwiperRef | null>(null);
 
   useEffect(() => {
     if (!isInitialSet && getCategory?.data?.allCategory?.categories) {
@@ -38,22 +45,29 @@ function MenuSlider({
 
       if (foundCategory) {
         setActiveSlide(foundCategory.index);
-        swiperRef?.current?.swiper.slideTo(foundCategory.index);
+        swiperRef.current?.swiper.slideTo(foundCategory.index); // Slide to the found category
 
         setIsInitialSet(true); // Ensure this only runs once
       }
     }
   }, [initialValue, getCategory, isInitialSet]);
 
-  // useEffect(() => {
-  //   focused(getCategory?.data?.allCategory?.categories[activeSlide]?.[0]?.name);
-  // }, [activeSlide, focused, getCategory]);
+  // Add focused call in onActiveIndexChange to set the focused category when sliding
+  const handleSlideChange = (swiper: any) => {
+    setActiveSlide(swiper.activeIndex);
+    const selectedCategory =
+      getCategory?.data?.allCategory?.categories[swiper.activeIndex];
+    if (selectedCategory) {
+      focused(selectedCategory[0].name); // Trigger the focused function when slide changes
+    }
+  };
 
   return (
     <>
       {getCategory?.data?.allCategory?.categories ? (
         <Swiper
-          spaceBetween={20}
+          spaceBetween={40}
+          className=" "
           slideToClickedSlide={true}
           ref={swiperRef}
           slidesPerView={getCategory?.data?.allCategory?.categories.length}
@@ -63,7 +77,7 @@ function MenuSlider({
             borderRadius: "10px",
           }}
           initialSlide={activeSlide}
-          onActiveIndexChange={(e) => setActiveSlide(e.activeIndex)}
+          onActiveIndexChange={handleSlideChange} // Updated: handle slide change event
           grabCursor={true}
           modules={[EffectCoverflow, Pagination]}
         >
@@ -90,7 +104,7 @@ function MenuSlider({
                       src={`/${item[0].icon}`}
                     />
                     {activeSlide === index ? (
-                      <p className="text-sm text-white">{item[0].name}</p>
+                      <p className="text-xs text-white">{item[0].name}</p>
                     ) : null}
                   </div>
                 </SwiperSlide>

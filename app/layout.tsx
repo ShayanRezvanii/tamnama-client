@@ -15,7 +15,7 @@ export const metadata: Metadata = {
 const iranianSans = localFont({
   src: [
     {
-      path: "../public/fonts/IRANSans_Medium.woff2",
+      path: "../public/fonts/YekanBakhFaNum-Regular.ttf",
       weight: "400",
       style: "normal",
     },

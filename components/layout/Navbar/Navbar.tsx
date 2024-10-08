@@ -10,6 +10,7 @@ import ProductCard from "../ProductCard/ProductCard";
 import { getProductByCategory } from "@/util/api/addProduct/getProductByCategory";
 import { useMutation } from "@tanstack/react-query";
 import { motion } from "framer-motion";
+import { usePathname, useRouter } from "next/navigation";
 interface Product {
   _id: number;
   title: string;
@@ -31,7 +32,11 @@ interface navbarProps {
 }
 
 function Navbar({ selectedCat }: navbarProps) {
-  const getInfo = useGetUserProfile("t-cafe3");
+  const path = usePathname();
+  const fullString = path;
+  const extractedString = fullString?.replace("/", "");
+  const getInfo = useGetUserProfile(extractedString || "");
+  const router = useRouter();
   const [foundedProducts, setFoundedProducts] = useState<{
     foundedProduct: Product[];
   }>({ foundedProduct: [] });
@@ -47,9 +52,11 @@ function Navbar({ selectedCat }: navbarProps) {
   });
 
   useEffect(() => {
-    if (selectedCat !== undefined) {
+    const fullString = path;
+    const extractedString = fullString?.replace("/", "");
+    if (selectedCat !== undefined && extractedString) {
       getProductByCategoryMutation.mutate({
-        shopName: "t-cafe3",
+        shopName: extractedString,
         category: selectedCat,
       });
     }
@@ -101,7 +108,7 @@ function Navbar({ selectedCat }: navbarProps) {
   const firstColorWithOpacity = hexToRgba(firstColor, 1, 0.8);
   const firstColorLight = hexToRgba(firstColor, 0.5, 1.5);
 
-  if (!firstColor || !secondColor) {
+  if (!firstColor) {
     return (
       <div>
         <svg className="h-6 w-6 animate-spin" viewBox="3 3 18 18">
@@ -140,15 +147,17 @@ function Navbar({ selectedCat }: navbarProps) {
       <div className="w-full justify-center flex flex-col gap-y-10 items-center px-6">
         <div className="flex items-center h-10 w-full relative justify-between gap-10 mt-10">
           <div className="border-t border-2 rounded-xl w-full border-white relative flex justify-center items-center"></div>
-          <div className="flex flex-col">
-            <Image
-              alt="logo"
-              className="rounded-full mt-6"
-              width={80}
-              height={80}
-              src={`${process.env.NEXT_PUBLIC_API_BASE_URL}${profile.imageURL}`}
-            />
-            <p className="text-lg" style={colorStyle}>
+          <div className="flex flex-col w-full items-center gap-y-2">
+            <div>
+              <Image
+                alt="logo"
+                className="rounded-full mt-6"
+                width={80}
+                height={80}
+                src={`${process.env.NEXT_PUBLIC_API_BASE_URL}${profile.imageURL}`}
+              />
+            </div>
+            <p className="text-xs tracking-[0.3em]" style={colorStyle}>
               {profile.shopName}
             </p>
           </div>
@@ -157,9 +166,9 @@ function Navbar({ selectedCat }: navbarProps) {
 
         <div
           style={backStyle}
-          className="w-full h-full mt-4 sticky backdrop-blur-md  z-30 top-2 border flex rounded-2xl items-center justify-between"
+          className={`w-full h-full mt-4 shadow-lg shadow-[${firstColor}] sticky backdrop-blur-md  z-30 top-2 border flex rounded-2xl items-center justify-between`}
         >
-          <div className="w-full  max-w-[320px]">
+          <div className="w-full  max-w-[320px] px-6">
             {profile ? (
               <MenuSlider
                 data={profile}
@@ -177,7 +186,7 @@ function Navbar({ selectedCat }: navbarProps) {
           </div>
 
           <div className="w-full max-w-[40px]">
-            <HambergerMenu size={24} color={firstColorLight} />
+            <HambergerMenu size={24} color={firstColor} />
           </div>
         </div>
 

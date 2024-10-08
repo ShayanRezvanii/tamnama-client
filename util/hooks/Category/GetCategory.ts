@@ -7,7 +7,7 @@ import { useQuery } from "@tanstack/react-query";
 const GetCategory = async (name?: string) => {
   try {
     const data = await axiosInstance.get(
-      `client/category/getCategory?shopName=${name}`
+      `client/category/gategoryList?shopName=${name}`
     );
     return data.data;
   } catch (error) {

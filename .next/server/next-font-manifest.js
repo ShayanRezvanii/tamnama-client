@@ -1,1 +1,1 @@
-self.__NEXT_FONT_MANIFEST="{\"pages\":{},\"app\":{\"/Users/shayanrezvani/Desktop/Projects/Tamnama/tamnama-client/app/layout\":[\"static/media/a34f9d1faa5f3315-s.p.woff2\",\"static/media/bea7ea6c6bd42406-s.p.woff2\"]},\"appUsingSizeAdjust\":true,\"pagesUsingSizeAdjust\":false}"
+self.__NEXT_FONT_MANIFEST="{\"pages\":{},\"app\":{\"/Users/shayanrezvani/Desktop/Projects/Tamnama/tamnama-client/app/layout\":[\"static/media/a34f9d1faa5f3315-s.p.woff2\",\"static/media/748a92d6ba8e2c23-s.p.ttf\"]},\"appUsingSizeAdjust\":true,\"pagesUsingSizeAdjust\":false}"

@@ -14,7 +14,7 @@ function Page() {
   const [selectedCat, setSelectedCat] = useState();
 
   return (
-    <div className="flex-col justify-between flex min-h-screen ">
+    <div className="flex-col justify-between  flex min-h-screen ">
       <Products selectedCategory={selectedCat} />
       <Categories selectedCat={(e: any) => setSelectedCat(e)} />
     </div>

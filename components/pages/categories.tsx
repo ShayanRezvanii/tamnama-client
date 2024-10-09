@@ -26,7 +26,7 @@ function Categories({ selectedCat }: categoriesProps) {
   const grabHandleRef = useRef(null);
 
   const [firstDarkColor, sertFirstDarkColor] = useState<string>();
-
+  const [close, setClose] = useState(false);
   const { firstColor, secondColor } = getInfo?.data?.profile || {};
 
   const hexToRgba = (hex: string, opacity: number, tone: number = 1) => {
@@ -51,8 +51,13 @@ function Categories({ selectedCat }: categoriesProps) {
   });
 
   useEffect(() => {
-    if (height > 180) {
+    if (height > 91) {
       setHeight(600);
+    }
+
+    if (height === 600 && close) {
+      setHeight(90);
+      setClose(false);
     }
   }, [height]);
 
@@ -221,7 +226,11 @@ function Categories({ selectedCat }: categoriesProps) {
           animate={{ opacity: 1, translateY: 0 }}
           transition={{ duration: 0.5 }}
           //   onClick={() => setVisible(true)}
-          className="w-full relative rounded-tr-2xl min-h-[90px] z-40 max-h-[500px] flex flex-col justify-start items-center rounded-tl-2xl"
+          onClick={() => {
+            setHeight(90);
+            setClose(true);
+          }}
+          className="w-full relative rounded-tr-2xl min-h-[90px] max-w-[550px] z-40 duration-200 flex flex-col justify-start items-center rounded-tl-2xl"
         >
           <div
             className={` absolute ${
@@ -234,7 +243,10 @@ function Categories({ selectedCat }: categoriesProps) {
 
           <div
             ref={grabHandleRef}
-            onClick={() => setHeight(90)}
+            onClick={() => {
+              setHeight(90);
+              setClose(true);
+            }}
             className="border-2 mt-4 w-8 cursor-grab rounded-2xl h-1 border-white"
           ></div>
 

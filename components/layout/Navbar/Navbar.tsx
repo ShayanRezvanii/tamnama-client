@@ -153,8 +153,9 @@ function Navbar({ selectedCat }: navbarProps) {
                 alt="logo"
                 className="rounded-full mt-6"
                 width={80}
+                unoptimized
                 height={80}
-                src={`${process.env.NEXT_PUBLIC_API_BASE_URL}${profile.imageURL}`}
+                src={`${process.env.NEXT_PUBLIC_API_BASE_URL}/${profile.imageURL}`}
               />
             </div>
             <p className="text-xs tracking-[0.3em]" style={colorStyle}>

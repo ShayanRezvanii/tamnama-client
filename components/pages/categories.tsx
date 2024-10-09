@@ -164,7 +164,8 @@ function Categories({ selectedCat }: categoriesProps) {
             className="rounded-full"
             width={80}
             height={80}
-            src={`${process.env.NEXT_PUBLIC_API_BASE_URL}${getInfo.data.profile.imageURL}`}
+            unoptimized
+            src={`${process.env.NEXT_PUBLIC_API_BASE_URL}/${getInfo.data.profile.imageURL}`}
           />
           <p className="text-white mt-2 tracking-widest">
             {getInfo.data.profile.shopName}

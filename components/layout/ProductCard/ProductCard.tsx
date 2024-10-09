@@ -26,8 +26,9 @@ function ProductCard({ lightColor, darkColor, data }: productCardProps) {
           <Image
             alt="product-image"
             fill
+            unoptimized
             className=" object-cover rounded-lg"
-            src={`${process.env.NEXT_PUBLIC_API_BASE_URL}${data?.imageURL}`}
+            src={`${process.env.NEXT_PUBLIC_API_BASE_URL}/${data?.imageURL}`}
           />
         </div>
         <div className=" w-full flex flex-col h-full px-4">

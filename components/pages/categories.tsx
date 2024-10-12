@@ -5,7 +5,7 @@ import useGetUserProfile from "@/util/hooks/user/showProfile";
 import Image from "next/image";
 import React, { useEffect, useRef, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
-import { ArrowDown2 } from "iconsax-react";
+import { ArrowCircleDown, ArrowDown2, ArrowUp2, ArrowUp3 } from "iconsax-react";
 import { usePathname } from "next/navigation";
 
 interface categoriesProps {
@@ -26,7 +26,7 @@ function Categories({ selectedCat }: categoriesProps) {
   const grabHandleRef = useRef(null);
 
   const [firstDarkColor, sertFirstDarkColor] = useState<string>();
-  const [close, setClose] = useState(false);
+  const [close, setClose] = useState(true);
   const { firstColor, secondColor } = getInfo?.data?.profile || {};
 
   const hexToRgba = (hex: string, opacity: number, tone: number = 1) => {
@@ -50,16 +50,11 @@ function Categories({ selectedCat }: categoriesProps) {
     }
   });
 
-  useEffect(() => {
-    if (height > 91) {
-      setHeight(600);
-    }
-
-    if (height === 600 && close) {
-      setHeight(90);
-      setClose(false);
-    }
-  }, [height]);
+  // useEffect(() => {
+  //   if (close && height === 540) {
+  //     setHeight(90);
+  //   }
+  // }, [height]);
 
   useEffect(() => {
     const handleMouseMove = (e: any) => {
@@ -157,9 +152,9 @@ function Categories({ selectedCat }: categoriesProps) {
     <div
       className={`w-full ${
         visible ? "hidden" : ""
-      } min-h-screen overflow-y-hidden flex flex-col justify-between z-40 absolute  bg-cover bg-center bg-texturebg`}
+      } min-h-screen overflow-y-hidden  flex flex-col justify-between z-40 absolute  bg-cover bg-center bg-texturebg`}
     >
-      <div className="w-full flex flex-col justify-center items-center h-40">
+      <div className="w-full flex flex-col justify-center items-center h-40 ">
         <div
           style={backColorStyle}
           className="h-fit w-fit mt-52 mb-10 min-w-[183px] rounded-tr-md rounded-tl-md  rounded-bl-md rounded-br-[120px] pt-6 pb-20 px-8 flex flex-col justify-start items-center"
@@ -219,18 +214,18 @@ function Categories({ selectedCat }: categoriesProps) {
       <AnimatePresence>
         <motion.div
           style={{ ...backStyle, height: `${height}px` }}
-          onMouseDown={handleMouseDown}
-          onTouchStart={handleTouchStart}
+          // onMouseDown={handleMouseDown}
+          // onTouchStart={handleTouchStart}
           initial={{ opacity: 0, translateY: 30 }}
-          exit={{ opacity: 0, translateY: 30 }}
+          // exit={{ opacity: 0, translateY: 30 }}
           animate={{ opacity: 1, translateY: 0 }}
-          transition={{ duration: 0.5 }}
+          // transition={{ duration: 0.3 }}
           //   onClick={() => setVisible(true)}
           onClick={() => {
-            setHeight(90);
-            setClose(true);
+            // setHeight(90);
+            // setClose(true);
           }}
-          className="w-full relative rounded-tr-2xl min-h-[90px] max-w-[550px] z-40 duration-200 flex flex-col justify-start items-center rounded-tl-2xl"
+          className="w-full absolute bottom-0 duration-200 rounded-tr-2xl min-h-[90px] bg-white max-w-[550px] z-40  flex flex-col justify-start items-center rounded-tl-2xl"
         >
           <div
             className={` absolute ${
@@ -242,42 +237,56 @@ function Categories({ selectedCat }: categoriesProps) {
           </div>
 
           <div
+            className="  py-2"
             ref={grabHandleRef}
             onClick={() => {
-              setHeight(90);
-              setClose(true);
+              setClose(!close);
+              setHeight(540);
+              if (height === 540 && close) {
+                setHeight(90);
+              }
             }}
-            className="border-2 mt-4 w-8 cursor-grab rounded-2xl h-1 border-white"
-          ></div>
+            // className="border-2 mt-4 w-8 cursor-grab rounded-2xl h-1 border-white"
+          >
+            <ArrowCircleDown
+              variant="Bold"
+              className={`duration-200   ${
+                height === 540 ? " rotate-0 " : "-rotate-180"
+              } mt-2  cursor-pointer text-white`}
+            />
+          </div>
 
           {height > 100 ? (
             <motion.ul
               variants={container}
               initial="hidden"
               animate="visible"
-              className="container grid  gap-4 h-fit w-full rounded-2xl grid-cols-3  px-10 items-start mt-10 justify-center "
+              className="container grid  gap-4 h-fit w-full rounded-2xl grid-cols-3 overflow-y-scroll  px-10 items-start mt-10 justify-center "
             >
               {getCategory.data?.allCategory?.categories.map(
-                (itemData: any) => {
+                (itemData: any, index: number) => {
                   return (
-                    <motion.li
-                      onClick={() => {
-                        setVisible(true);
-                        selectedCat(itemData[0].name);
-                      }}
-                      style={backColorStyle}
-                      variants={item}
-                      className={` item text-white cursor-pointer backdrop-blur-lg duration-200  rounded-lg shadow-md  w-full max-w-[90px] h-[90px] max-h-[90px] flex flex-col justify-center items-center`}
-                    >
-                      <Image
-                        alt="logo"
-                        className="rounded-full select-none"
-                        width={40}
-                        height={40}
-                        src={`/${itemData[0].icon}`}
-                      />
-                      {itemData[0].name}
-                    </motion.li>
+                    <>
+                      <motion.li
+                        onClick={() => {
+                          setVisible(true);
+                          selectedCat(itemData[0].name);
+                        }}
+                        key={index}
+                        style={backColorStyle}
+                        variants={item}
+                        className={` item text-white cursor-pointer backdrop-blur-lg duration-200  rounded-lg shadow-md  w-full max-w-[90px] h-[90px] max-h-[90px] flex flex-col justify-center items-center`}
+                      >
+                        <Image
+                          alt="logo"
+                          className="rounded-full select-none"
+                          width={40}
+                          height={40}
+                          src={`/${itemData[0].icon}`}
+                        />
+                        {itemData[0].name}
+                      </motion.li>
+                    </>
                   );
                 }
               )}

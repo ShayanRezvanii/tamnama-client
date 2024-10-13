@@ -169,7 +169,7 @@ function Navbar({ selectedCat }: navbarProps) {
           style={backStyle}
           className={`w-full h-full mt-4 shadow-lg shadow-[${firstColor}] sticky backdrop-blur-md  z-30 top-2 border flex rounded-2xl items-center justify-between`}
         >
-          <div className="w-full  max-w-[320px] px-6">
+          <div className="w-full sticky  ">
             {profile ? (
               <MenuSlider
                 data={profile}
@@ -186,7 +186,10 @@ function Navbar({ selectedCat }: navbarProps) {
             ) : null}
           </div>
 
-          <div className="w-full max-w-[40px]">
+          <div
+            onClick={() => window.location.reload()}
+            className="w-full max-w-fit p-3 flex justify-center cursor-pointer items-center  "
+          >
             <HambergerMenu size={24} color={firstColor} />
           </div>
         </div>

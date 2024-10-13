@@ -152,7 +152,7 @@ function Categories({ selectedCat }: categoriesProps) {
     <div
       className={`w-full ${
         visible ? "hidden" : ""
-      } min-h-screen overflow-y-hidden  flex flex-col justify-between z-40 absolute bg-texturebg bg-cover bg-center `}
+      } min-h-screen overflow-y-hidden  flex flex-col justify-between z-40 absolute bg-white  bg-cover bg-center `}
     >
       <div className="w-full flex flex-col justify-center items-center h-40 ">
         <div

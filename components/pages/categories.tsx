@@ -152,7 +152,7 @@ function Categories({ selectedCat }: categoriesProps) {
     <div
       className={`w-full ${
         visible ? "hidden" : ""
-      } min-h-screen overflow-y-hidden  flex flex-col justify-between z-40 absolute bg-white  bg-cover bg-center `}
+      } min-h-screen overflow-y-hidden  flex flex-col justify-between z-40 bg-white absolute  bg-cover bg-center `}
     >
       <div className="w-full flex flex-col justify-center items-center h-40 ">
         <div
@@ -219,7 +219,7 @@ function Categories({ selectedCat }: categoriesProps) {
           animate={{
             opacity: 1,
             translateY: close ? -0 : 0,
-            height: close ? 90 : 540,
+            height: close ? 140 : 540,
           }}
           exit={{ opacity: 0, translateY: 30 }}
           transition={{
@@ -232,7 +232,7 @@ function Categories({ selectedCat }: categoriesProps) {
           <div
             className={` absolute ${
               !close ? "hidden" : null
-            } bottom-24 flex-col flex items-center`}
+            } bottom-40 flex-col flex items-center`}
           >
             <p style={{ color: firstDarkColor }}>menu</p>
             <ArrowDown2 size={24} className=" animate-bounce" />

@@ -26,7 +26,7 @@ function SecondSection() {
                   <span className=" text-white text-xl">شماره تماس</span>
                 </div>
                 <p className=" text-white text-md tracking-widest">
-                  ۰۲۱-۲۲۹۹۳۲۴۴
+                  ۰۲۱-۸۸۷۴۸۵۰۱
                 </p>
               </div>
 
@@ -36,7 +36,7 @@ function SecondSection() {
                   <span className=" text-white text-xl">آدرس ایمیل</span>
                 </div>
                 <p className=" text-white text-md tracking-widest">
-                  example@gmail.com
+                  info@nsjsoft.ir
                 </p>
               </div>
 

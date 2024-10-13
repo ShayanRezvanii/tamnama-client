@@ -30,9 +30,9 @@ function Hero() {
           </div>
 
           <div className=" w-full flex flex-col items-center gap-3 lg:gap-10 justify-center">
-            <div className=" border-t border-white max-w-[70px] w-full mx-auto"></div>
+            {/* <div className=" border-t border-white max-w-[70px] w-full mx-auto"></div> */}
 
-            <h1 className=" text-2xl lg:text-[40px]  font-semibold rounded-lg text-white">
+            <h1 className=" text-2xl lg:text-[40px] mt-10  font-semibold rounded-lg text-white">
               منوی دیجیتال طعم نما
             </h1>
 

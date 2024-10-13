@@ -6,7 +6,7 @@ import React from "react";
 function LandingFooter() {
   return (
     <div className=" w-full text-white gap-2  flex justify-center items-center h-10 ">
-      <p className=" text-xs">طراحی توسط ShayanRezvani</p>
+      <p className=" text-xs">طراحی و توسعه توسظ نامدار سهیل جاوید</p>
       <Copyright size={13} />
     </div>
   );

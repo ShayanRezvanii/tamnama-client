@@ -10,6 +10,7 @@ import "swiper/swiper-bundle.css";
 import { useEffect, useRef, useState } from "react";
 import useGetCategoryList from "@/util/hooks/Category/GetCategory";
 import Image from "next/image";
+import { usePathname } from "next/navigation";
 
 interface sliderProps {
   focused: (value: string) => void;
@@ -26,7 +27,10 @@ function MenuSlider({
   lightColor,
   initialValue,
 }: sliderProps) {
-  const getCategory = useGetCategoryList("t-cafe3");
+  const path = usePathname();
+  const fullString = path;
+  const extractedString = fullString?.replace("/", "");
+  const getCategory = useGetCategoryList(extractedString || "");
   const [activeSlide, setActiveSlide] = useState<number>(0);
   const [isInitialSet, setIsInitialSet] = useState<boolean>(false);
 

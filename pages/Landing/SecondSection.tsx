@@ -40,11 +40,14 @@ function SecondSection() {
                 </p>
               </div>
 
-              <div className=" w-full flex justify-center items-center">
+              <a
+                href="tel:02188748501"
+                className=" w-full flex justify-center items-center"
+              >
                 <button className=" bg-white hover:bg-white/80 cursor-pointer px-10 py-2 duration-200 rounded-2xl text-black">
                   تماس
                 </button>
-              </div>
+              </a>
             </div>
           </div>
 

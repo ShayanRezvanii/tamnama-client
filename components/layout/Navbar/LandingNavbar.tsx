@@ -13,6 +13,10 @@ import {
   InfoCircle,
 } from "iconsax-react";
 import React, { useState } from "react";
+import Image from "next/image";
+
+import Logo from "../../../public/logo.png";
+
 import { useEffect } from "react";
 import {
   Link,
@@ -86,7 +90,7 @@ function LandingNavbar() {
           </Link>
         </div>
 
-        <div className=" w-full xl:hidden flex justify-between">
+        <div className=" w-full xl:hidden flex items-center justify-between">
           <HambergerMenu
             onClick={() => setIsOpen(true)}
             size={24}
@@ -102,7 +106,14 @@ function LandingNavbar() {
             size={32}
           />
           <div className=" xl:hidden">
-            <h1 className=" text-white font-semibold">LOGO</h1>
+            <Image
+              alt="logo"
+              width={90}
+              height={90}
+              unoptimized
+              className=" object-cover rounded-lg"
+              src={Logo}
+            />
           </div>
         </div>
 

@@ -5,7 +5,15 @@ import useGetUserProfile from "@/util/hooks/user/showProfile";
 import Image from "next/image";
 import React, { useEffect, useRef, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
-import { ArrowCircleDown, ArrowDown2, ArrowUp2, ArrowUp3 } from "iconsax-react";
+import {
+  ArrowCircleDown,
+  ArrowCircleDown2,
+  ArrowDown,
+  ArrowDown2,
+  ArrowDown3,
+  ArrowUp2,
+  ArrowUp3,
+} from "iconsax-react";
 import { usePathname } from "next/navigation";
 
 interface categoriesProps {
@@ -49,49 +57,6 @@ function Categories({ selectedCat }: categoriesProps) {
       sertFirstDarkColor(firstColorWithOpacity);
     }
   });
-
-  // useEffect(() => {
-  //   if (close && height === 540) {
-  //     setHeight(90);
-  //   }
-  // }, [height]);
-
-  // useEffect(() => {
-  //   const handleMouseMove = (e: any) => {
-  //     if (isDraggingRef.current) {
-  //       setHeight((prevHeight) => Math.max(0, prevHeight - e.movementY));
-  //     }
-  //   };
-
-  //   const handleMouseUp = () => {
-  //     isDraggingRef.current = false;
-  //   };
-
-  //   const handleTouchMove = (e: any) => {
-  //     if (isDraggingRef.current) {
-  //       const touchY = e.touches[0].clientY;
-  //       const deltaY = initialTouchYRef.current - touchY;
-  //       setHeight((prevHeight) => Math.max(0, prevHeight + deltaY));
-  //       initialTouchYRef.current = touchY;
-  //     }
-  //   };
-
-  //   const handleTouchEnd = () => {
-  //     isDraggingRef.current = false;
-  //   };
-
-  //   document.addEventListener("mousemove", handleMouseMove);
-  //   document.addEventListener("mouseup", handleMouseUp);
-  //   document.addEventListener("touchmove", handleTouchMove);
-  //   document.addEventListener("touchend", handleTouchEnd);
-
-  //   return () => {
-  //     document.removeEventListener("mousemove", handleMouseMove);
-  //     document.removeEventListener("mouseup", handleMouseUp);
-  //     document.removeEventListener("touchmove", handleTouchMove);
-  //     document.removeEventListener("touchend", handleTouchEnd);
-  //   };
-  // }, []);
 
   const handleMouseDown = () => {
     isDraggingRef.current = true;
@@ -166,7 +131,7 @@ function Categories({ selectedCat }: categoriesProps) {
             height={80}
             loading="lazy"
             unoptimized
-            src={`${process.env.NEXT_PUBLIC_API_BASE_URL}/${getInfo.data.profile.imageURL}`}
+            src={`${process.env.NEXT_PUBLIC_API_BASE_URLIMAGE}/${getInfo.data.profile.imageURL}`}
           />
           <p className="text-white mt-2 tracking-widest">
             {getInfo.data.profile.shopName}
@@ -212,6 +177,21 @@ function Categories({ selectedCat }: categoriesProps) {
         </div>
       </div>
 
+      <div
+        onClick={() => setClose(false)}
+        className={` absolute w-full  ${
+          !close ? "hidden" : null
+        } bottom-40 flex-col flex items-center`}
+      >
+        <p style={{ color: firstDarkColor }}>menu</p>
+        <ArrowDown2
+          variant="Bold"
+          size={24}
+          style={{ color: firstDarkColor }}
+          className=" animate-bounce"
+        />
+      </div>
+
       <AnimatePresence>
         <motion.div
           style={{ ...backStyle }}
@@ -223,23 +203,14 @@ function Categories({ selectedCat }: categoriesProps) {
           }}
           exit={{ opacity: 0, translateY: 30 }}
           transition={{
-            duration: 0.5,
+            duration: 0.2,
             ease: "easeInOut",
           }}
-          className={`w-full absolute bottom-0  
+          className={`w-full absolute bottom-0 shadow-2xl shadow-black
        duration-200  rounded-tr-2xl min-h-[90px] z-40 flex flex-col justify-start items-center  rounded-tl-2xl`}
         >
           <div
-            className={` absolute ${
-              !close ? "hidden" : null
-            } bottom-40 flex-col flex items-center`}
-          >
-            <p style={{ color: firstDarkColor }}>menu</p>
-            <ArrowDown2 size={24} className=" animate-bounce" />
-          </div>
-
-          <div
-            className="  py-2"
+            className=" mt-2 flex justify-center h-fit"
             // ref={grabHandleRef}
             onClick={() => {
               setClose(!close);
@@ -250,11 +221,11 @@ function Categories({ selectedCat }: categoriesProps) {
             }}
             // className="border-2 mt-4 w-8 cursor-grab rounded-2xl h-1 border-white"
           >
-            <ArrowCircleDown
-              variant="Bold"
-              className={`   ${
+            <ArrowDown2
+              size={32}
+              className={` duration-200  ${
                 !close ? " rotate-0 " : "-rotate-180"
-              } mt-2  cursor-pointer text-white`}
+              }   cursor-pointer text-white`}
             />
           </div>
 
@@ -263,7 +234,7 @@ function Categories({ selectedCat }: categoriesProps) {
               // variants={container}
               // initial="hidden"
               // animate="visible"
-              className="container grid   gap-4 h-fit w-full rounded-2xl grid-cols-3 overflow-y-scroll  px-10 items-start mt-10 justify-center "
+              className="container grid overflow-y-scroll gap-4  w-full rounded-2xl grid-cols-3  px-10 items-start mt-10 justify-center "
             >
               {getCategory.data?.allCategory?.categories.map(
                 (itemData: any, index: number) => {
@@ -275,9 +246,9 @@ function Categories({ selectedCat }: categoriesProps) {
                           selectedCat(itemData[0].name);
                         }}
                         key={index}
-                        style={backColorStyle}
+                        // style={backColorStyle}
                         // variants={item}
-                        className={` item text-white cursor-pointer backdrop-blur-lg duration-200  rounded-lg shadow-md  w-full max-w-[90px] h-[90px] max-h-[90px] flex flex-col justify-center items-center`}
+                        className={` item text-black bg-white  cursor-pointer text-xs text-center gap-1 backdrop-blur-lg duration-200  rounded-lg shadow-md  w-full max-w-[90px] h-[90px] max-h-[90px] flex flex-col justify-center items-center`}
                       >
                         <Image
                           alt="logo"

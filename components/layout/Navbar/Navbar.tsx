@@ -148,14 +148,17 @@ function Navbar({ selectedCat }: navbarProps) {
         <div className="flex items-center h-10 w-full relative justify-between gap-10 mt-10">
           <div className="border-t border-2 rounded-xl w-full border-white relative flex justify-center items-center"></div>
           <div className="flex flex-col w-full items-center gap-y-2">
-            <div>
+            <div
+              className=" cursor-pointer"
+              onClick={() => window.location.reload()}
+            >
               <Image
                 alt="logo"
                 className="rounded-full mt-6"
                 width={80}
                 unoptimized
                 height={80}
-                src={`${process.env.NEXT_PUBLIC_API_BASE_URL}/${profile.imageURL}`}
+                src={`${process.env.NEXT_PUBLIC_API_BASE_URLIMAGE}/${profile.imageURL}`}
               />
             </div>
             <p className="text-xs tracking-[0.3em]" style={colorStyle}>
@@ -167,9 +170,9 @@ function Navbar({ selectedCat }: navbarProps) {
 
         <div
           style={backStyle}
-          className={`w-full h-full mt-4 shadow-lg shadow-[${firstColor}] sticky backdrop-blur-md  z-30 top-2 border flex rounded-2xl items-center justify-between`}
+          className={`w-full h-full mt-4 shadow-lg shadow-[${firstColor}] sticky backdrop-blur-md overflow-hidden   z-30 top-2 border flex  rounded-3xl justify-end items-center`}
         >
-          <div className="w-full  max-w-[320px] px-6">
+          <div className=" w-full px-2 rounded-3xl ">
             {profile ? (
               <MenuSlider
                 data={profile}
@@ -178,7 +181,7 @@ function Navbar({ selectedCat }: navbarProps) {
                 initialValue={selectedCat}
                 focused={(e: any) => {
                   getProductByCategoryMutation.mutate({
-                    shopName: extractedString,
+                    shopName: extractedString ? extractedString : "",
                     category: e,
                   });
                 }}
@@ -188,14 +191,14 @@ function Navbar({ selectedCat }: navbarProps) {
 
           <div
             onClick={() => window.location.reload()}
-            className="w-full max-w-fit p-3 flex justify-center cursor-pointer items-center  "
+            className="w-full max-w-fit p-3 flex justify-center  cursor-pointer items-center  "
           >
             <HambergerMenu size={24} color={firstColor} />
           </div>
         </div>
 
         {foundedProducts.foundedProduct?.length > 0 && (
-          <div className="w-full flex-col flex gap-y-4">
+          <div className="w-full flex-col flex gap-y-4 pb-24  h-screen  overflow-y-scroll ">
             {foundedProducts?.foundedProduct.map((item: Product) => (
               <ProductCard
                 key={item._id}

@@ -20,15 +20,15 @@ function ProductCard({ lightColor, darkColor, data }: productCardProps) {
       </Modal>
       <div
         style={{ backgroundColor: lightColor }}
-        className=" w-full h-36 flex p-2 rounded-lg border  border-gray-300"
+        className=" w-full min-h-36 flex p-2 rounded-lg border  border-gray-300"
       >
-        <div className=" relative h-full bg-white rounded-lg w-full max-w-[120px]">
+        <div className=" relative h-full bg-white rounded-lg w-full min-w-[120px] max-w-[120px]">
           <Image
             alt="product-image"
             fill
             unoptimized
             className=" object-cover rounded-lg"
-            src={`${process.env.NEXT_PUBLIC_API_BASE_URL}/${data?.imageURL}`}
+            src={`${process.env.NEXT_PUBLIC_API_BASE_URLIMAGE}/${data?.imageURL}`}
           />
         </div>
         <div className=" w-full flex flex-col h-full px-4">

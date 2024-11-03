@@ -67,37 +67,39 @@ function MenuSlider({
   };
 
   return (
-    <>
+    <div className="">
       {getCategory?.data?.allCategory?.categories ? (
         <Swiper
-          spaceBetween={40}
-          className=" "
-          slideToClickedSlide={true}
+          slidesPerView={"auto"}
+          spaceBetween={30}
+          className="rounded-3xl"
+          // slideToClickedSlide={true}
           ref={swiperRef}
-          slidesPerView={getCategory?.data?.allCategory?.categories.length}
+          // slidesPerView={getCategory?.data?.allCategory?.categories.length}
           slideActiveClass="swiper-slide-active"
-          centeredSlides
-          style={{
-            borderRadius: "10px",
-          }}
+          centeredSlides={
+            getCategory?.data?.allCategory?.categories.length >= 4
+              ? true
+              : false
+          }
           initialSlide={activeSlide}
-          onActiveIndexChange={handleSlideChange} // Updated: handle slide change event
+          onActiveIndexChange={handleSlideChange}
           grabCursor={true}
-          modules={[EffectCoverflow, Pagination]}
+          modules={[Pagination]}
+          slideToClickedSlide={true}
         >
           {getCategory?.data?.allCategory?.categories.map(
             (item: any, index: number) => {
               return (
                 <SwiperSlide
-                  onClick={() => focused(item[0].name)}
+                  // onClick={() => focused(item[0].name)}
                   style={{
                     height: "40px",
-                    backgroundColor: lightColor,
+                    // backgroundColor: lightColor,
                   }}
                   key={index}
-                  className={`text-black my-3 ${
-                    activeSlide === index ? "rounded-md" : "rounded-full"
-                  } shadow-lg w-[70px] cursor-pointer duration-200 text-lg text-center`}
+                  className={`text-black my-3 bg-white border border-black  rounded-3xl
+                   shadow-lg min-w-[70px] cursor-pointer duration-200 text-lg text-center`}
                 >
                   <div className={`flex justify-center items-center`}>
                     <Image
@@ -107,9 +109,11 @@ function MenuSlider({
                       height={40}
                       src={`/${item[0].icon}`}
                     />
-                    {activeSlide === index ? (
-                      <p className="text-xs text-white">{item[0].name}</p>
-                    ) : null}
+                    {/* {activeSlide === index ? ( */}
+                    <p className="text-xs text-black select-none">
+                      {item[0].name}
+                    </p>
+                    {/* ) : null} */}
                   </div>
                 </SwiperSlide>
               );
@@ -119,7 +123,7 @@ function MenuSlider({
       ) : (
         <p>loading</p>
       )}
-    </>
+    </div>
   );
 }
 

@@ -1,0 +1,5 @@
+> Ready on http://tamnama.nsjsoft.ir:\\.\pipe\9e30ff50-a0bc-4071-ab78-e38312487cd1
+ ○ Compiling /[shopName] ...
+ ✓ Compiled /[shopName] in 11.3s (3474 modules)
+ GET /t-cafe 200 in 13687ms
+ GET /t-cafe 200 in 82ms

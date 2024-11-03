@@ -1,0 +1,263 @@
+> Ready on http://tamnama.nsjsoft.ir:\\.\pipe\f8b43bc8-b664-4428-b8a6-34bb42ee307f
+ ○ Compiling /[shopName] ...
+ ✓ Compiled /[shopName] in 12.1s (3474 modules)
+ GET /t-cafe 200 in 14615ms
+   Reload env: .env
+ ✓ Compiled in 3.4s (3474 modules)
+ GET /t-cafe 200 in 579ms
+ ✓ Compiled in 1672ms (3474 modules)
+   Reload env: .env
+ ✓ Compiled in 1353ms (3474 modules)
+ GET /t-cafe 200 in 263ms
+ GET /t-cafe 200 in 97ms
+ GET /t-cafe 200 in 65ms
+ GET /t-cafe 200 in 77ms
+ GET /t-cafe 200 in 66ms
+ GET /t-cafe 200 in 49ms
+ GET /t-cafe 200 in 77ms
+ ○ Compiling / ...
+ ✓ Compiled / in 8s (4542 modules)
+ GET / 200 in 8604ms
+ GET / 200 in 203ms
+ GET /t-cafe 200 in 262ms
+ GET /t-cafe 200 in 48ms
+ GET /t-cafe 200 in 120ms
+ GET /t-cafe 200 in 45ms
+   Reload env: .env
+ ✓ Compiled in 3s (4542 modules)
+ GET /t-cafe 200 in 363ms
+ GET /t-cafe 200 in 79ms
+ ✓ Compiled in 1729ms (3496 modules)
+ GET /t-cafe 200 in 465ms
+   Reload env: .env
+ ✓ Compiled in 1695ms (3496 modules)
+ GET /t-cafe 200 in 359ms
+   Reload env: .env
+ ✓ Compiled in 2.9s (3496 modules)
+ GET /t-cafe 200 in 603ms
+ GET /t-cafe 200 in 97ms
+   Reload env: .env
+ ✓ Compiled in 2.1s (3496 modules)
+ GET /t-cafe 200 in 206ms
+ GET /t-cafe 200 in 62ms
+ GET /t-cafe 200 in 106ms
+ GET /t-cafe 200 in 82ms
+ GET /t-cafe 200 in 107ms
+ GET /t-cafe 200 in 94ms
+ GET /t-cafe 200 in 85ms
+ ○ Compiling /favicon.ico ...
+ ✓ Compiled /favicon.ico in 2.1s (1800 modules)
+ GET /favicon.ico 200 in 2354ms
+ GET /t-cafe 200 in 475ms
+ GET /t-cafe 200 in 58ms
+ GET /t-cafe 200 in 109ms
+ GET /t-cafe 200 in 72ms
+ GET /t-cafe 200 in 131ms
+ GET /t-cafe 200 in 108ms
+ GET /favicon.ico 200 in 20ms
+ GET /favicon.ico 200 in 34ms
+ GET /t-cafe 200 in 60ms
+ GET /t-cafe 200 in 56ms
+ GET /t-cafe 200 in 99ms
+ GET /t-cafe 200 in 92ms
+ GET /t-cafe 200 in 75ms
+ GET /t-cafe 200 in 101ms
+ GET /t-cafe 200 in 72ms
+ GET /t-cafe 200 in 101ms
+ GET /t-cafe 200 in 67ms
+ GET /favicon.ico 200 in 36ms
+ GET /t-cafe 200 in 71ms
+ GET /t-cafe 200 in 128ms
+ GET /t-cafe 200 in 89ms
+ GET /t-cafe 200 in 58ms
+ GET /t-cafe 200 in 117ms
+ GET /t-cafe 200 in 54ms
+ GET /favicon.ico 200 in 22ms
+ GET /favicon.ico 200 in 35ms
+ GET /t-cafe 200 in 73ms
+ GET /t-cafe 200 in 160ms
+ GET /t-cafe 200 in 103ms
+ GET /t-cafe 200 in 62ms
+ GET /favicon.ico 200 in 28ms
+ GET /t-cafe 200 in 62ms
+ GET /t-cafe 200 in 93ms
+ GET /t-cafe 200 in 91ms
+ GET /t-cafe 200 in 93ms
+ GET /favicon.ico 200 in 23ms
+ GET /t-cafe 200 in 117ms
+ GET /favicon.ico 200 in 42ms
+ GET /favicon.ico 200 in 28ms
+   Reload env: .env
+ ✓ Compiled in 2.8s (3526 modules)
+ GET /t-cafe 200 in 1810ms
+ GET /favicon.ico 200 in 104ms
+ GET /favicon.ico 200 in 22ms
+ GET /t-cafe 200 in 101ms
+ GET /t-cafe 200 in 91ms
+ GET /t-cafe 200 in 171ms
+ GET /favicon.ico 200 in 36ms
+ GET /favicon.ico 200 in 23ms
+ GET /t-cafe 200 in 113ms
+ GET /t-cafe 200 in 100ms
+ GET /t-cafe 200 in 84ms
+ GET /t-cafe 200 in 105ms
+ GET /favicon.ico 200 in 31ms
+ GET /t-cafe 200 in 106ms
+ GET /t-cafe 200 in 99ms
+ GET /t-cafe 200 in 56ms
+ GET /t-cafe 200 in 98ms
+ GET /t-cafe 200 in 95ms
+ GET /t-cafe 200 in 88ms
+ GET /t-cafe 200 in 91ms
+ GET /t-cafe 200 in 78ms
+ GET /t-cafe 200 in 83ms
+ GET /t-cafe 200 in 76ms
+ GET /t-cafe 200 in 127ms
+ GET /soragol 200 in 92ms
+ GET /sofragol 200 in 86ms
+ ○ Compiling / ...
+ ✓ Compiled / in 10.6s (2816 modules)
+ GET /sofragol 200 in 10685ms
+ GET / 200 in 17082ms
+ GET /sofragol 200 in 101ms
+ GET /sofragol 200 in 326ms
+ GET /apple-touch-icon.png 200 in 333ms
+ GET /apple-touch-icon-precomposed.png 200 in 315ms
+ ○ Compiling /favicon.ico ...
+ ✓ Compiled /favicon.ico in 1843ms (2846 modules)
+ GET /favicon.ico 200 in 1509ms
+ GET /favicon.ico 200 in 2277ms
+ GET /sofragol 200 in 600ms
+ GET /sofragol 200 in 115ms
+ GET /sofragol 200 in 88ms
+ GET /sofragol 200 in 104ms
+ GET /sofragol 200 in 123ms
+ GET /sofragol 200 in 96ms
+ GET /sofragol 200 in 68ms
+ GET /sofragol 200 in 117ms
+ GET /sofragol 200 in 127ms
+ GET /sofragol 200 in 67ms
+ GET /sofragol 200 in 59ms
+ GET /sofragol 200 in 117ms
+ GET /sofragol 200 in 76ms
+ GET /sofragol 200 in 117ms
+ GET /sofragol 200 in 92ms
+ GET /sofragol 200 in 126ms
+ GET /sofragol 200 in 108ms
+ GET /favicon.ico 200 in 34ms
+ GET /sofragol 200 in 118ms
+ GET /sofragol 200 in 120ms
+ GET /sofragol 200 in 100ms
+ GET /favicon.ico 200 in 32ms
+ GET /sofragol 200 in 98ms
+ GET /sofragol 200 in 102ms
+ GET /sofragol 200 in 99ms
+ GET /sofragol 200 in 132ms
+ GET /sofragol 200 in 118ms
+ GET /sofragol 200 in 71ms
+ GET /sofragol 200 in 90ms
+ GET /sofragol 200 in 85ms
+ GET /favicon.ico 200 in 22ms
+ GET /favicon.ico 200 in 21ms
+ GET /t-cafe 200 in 534ms
+ GET /sofragol 200 in 514ms
+ GET / 200 in 555ms
+ GET / 200 in 551ms
+ GET / 200 in 529ms
+ GET /sofragol 200 in 517ms
+ GET /favicon.ico 200 in 29ms
+ GET /favicon.ico 200 in 19ms
+ GET /favicon.ico 200 in 29ms
+ GET /favicon.ico 200 in 51ms
+ GET /favicon.ico 200 in 43ms
+ GET /favicon.ico 200 in 38ms
+ GET /t-cafe 200 in 105ms
+ GET /t-cafe 200 in 86ms
+ GET /favicon.ico 200 in 25ms
+ GET /favicon.ico 200 in 23ms
+ GET /sofragol 200 in 103ms
+ GET /t-cafe 200 in 61ms
+ GET /favicon.ico 200 in 26ms
+ GET /sofragol 200 in 74ms
+ GET /favicon.ico 200 in 42ms
+ GET /sofragol 200 in 76ms
+ GET /sofragol 200 in 82ms
+ GET /sofragol 200 in 84ms
+ GET /sofragol 200 in 90ms
+ GET /sofragol 200 in 100ms
+ GET /sofragol 200 in 116ms
+ GET /t-cafe 200 in 94ms
+ ✓ Compiled in 14.3s (3510 modules)
+ GET /t-cafe 200 in 4800ms
+ GET /t-cafe 200 in 139ms
+ GET /sofragol 200 in 59ms
+ ○ Compiling /favicon.ico ...
+ ✓ Compiled /favicon.ico in 1045ms (1800 modules)
+ GET /favicon.ico 200 in 1267ms
+ GET /sofragol 200 in 418ms
+ GET /tcafe 200 in 128ms
+ GET /favicon.ico 200 in 33ms
+ GET /t-cafe 200 in 104ms
+ GET /t-cafe 200 in 78ms
+ GET /t-cafe 200 in 78ms
+ GET /t-caf 200 in 66ms
+ GET /t- 200 in 112ms
+ GET /t-ca 200 in 104ms
+ GET /favicon.ico 200 in 18ms
+ GET /favicon.ico 200 in 16ms
+ GET /favicon.ico 200 in 15ms
+ GET /t-cafe 200 in 64ms
+ GET /t-cafe 200 in 107ms
+ GET /sofragol 200 in 77ms
+ GET /sofragol 200 in 117ms
+ GET /sofragol 200 in 70ms
+ GET /sofragol 200 in 82ms
+ GET /sofragol 200 in 108ms
+ GET /t-cafe 200 in 63ms
+ GET /favicon.ico 200 in 32ms
+ GET /sofragol 200 in 97ms
+ GET /sofragol 200 in 110ms
+ GET /sofragol 200 in 97ms
+ GET /t-cafe 200 in 99ms
+ GET /t-cafe 200 in 58ms
+ GET /sofragol 200 in 131ms
+ GET /sofragol 200 in 66ms
+ GET /t-cafe 200 in 92ms
+ GET /favicon.ico 200 in 18ms
+ ○ Compiling / ...
+ ✓ Compiled / in 2s (2816 modules)
+ GET / 200 in 2662ms
+ GET /t-cafe 200 in 229ms
+ GET /t-cafe 200 in 92ms
+ GET /t-cafe 200 in 98ms
+ GET /t-cafe 200 in 75ms
+ ○ Compiling /favicon.ico ...
+ ✓ Compiled /favicon.ico in 918ms (1800 modules)
+ GET /favicon.ico 200 in 1133ms
+ GET /sofragol 200 in 509ms
+ GET /t-cafe 200 in 87ms
+ GET /t-cafe 200 in 102ms
+ GET /t-cafe 200 in 98ms
+ GET /sofragol 200 in 63ms
+ GET /t-cafe 200 in 68ms
+ GET /t-cafe 200 in 77ms
+ GET /favicon.ico 200 in 37ms
+ GET /t-cafe 200 in 114ms
+ GET /t-cafe 200 in 79ms
+ GET /sofragol 200 in 86ms
+ GET /t-cafe 200 in 71ms
+ GET /t-cafe 200 in 84ms
+ GET /t-cafe 200 in 74ms
+ GET /t-cafe 200 in 106ms
+ GET /t-cafe 200 in 68ms
+ GET /favicon.ico 200 in 35ms
+ GET /t-cafe 200 in 90ms
+ GET /t-cafe 200 in 64ms
+ GET /t-cafe 200 in 86ms
+ GET /t-cafe 200 in 85ms
+ GET /t-cafe 200 in 56ms
+ GET /t-cafe 200 in 78ms
+ GET /t-cafe 200 in 210ms
+ GET /t-cafe 200 in 117ms
+ GET /t-cafe 200 in 91ms
+ GET /t-cafe 200 in 119ms

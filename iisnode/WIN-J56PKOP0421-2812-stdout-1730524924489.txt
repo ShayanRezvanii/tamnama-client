@@ -1,0 +1,20 @@
+> Ready on http://tamnama.nsjsoft.ir:\\.\pipe\444887f6-eae0-4bb6-8285-7abab1f5eafe
+ ○ Compiling /[shopName] ...
+ ✓ Compiled /[shopName] in 11.2s (3474 modules)
+ GET /t-cafe 200 in 14007ms
+ GET /t-cafe 200 in 14041ms
+ ○ Compiling /favicon.ico ...
+ ✓ Compiled /favicon.ico in 965ms (1800 modules)
+ GET /favicon.ico 200 in 1228ms
+ GET /t-cafe 200 in 490ms
+ GET /favicon.ico 200 in 25ms
+ GET /favicon.ico 200 in 17ms
+ GET /t-cafe 200 in 90ms
+ GET /favicon.ico 200 in 31ms
+ GET /favicon.ico 200 in 19ms
+ GET /t-cafe 200 in 64ms
+ GET /favicon.ico 200 in 19ms
+ GET /favicon.ico 200 in 15ms
+ GET /t-cafe 200 in 71ms
+ GET /favicon.ico 200 in 14ms
+ GET /favicon.ico 200 in 14ms

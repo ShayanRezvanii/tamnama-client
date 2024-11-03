@@ -169,7 +169,7 @@ function Navbar({ selectedCat }: navbarProps) {
           style={backStyle}
           className={`w-full h-full mt-4 shadow-lg shadow-[${firstColor}] sticky backdrop-blur-md  z-30 top-2 border flex rounded-2xl items-center justify-between`}
         >
-          <div className="w-full sticky  ">
+          <div className="w-full  max-w-[320px] px-6">
             {profile ? (
               <MenuSlider
                 data={profile}
@@ -178,7 +178,7 @@ function Navbar({ selectedCat }: navbarProps) {
                 initialValue={selectedCat}
                 focused={(e: any) => {
                   getProductByCategoryMutation.mutate({
-                    shopName: "t-cafe3",
+                    shopName: extractedString,
                     category: e,
                   });
                 }}

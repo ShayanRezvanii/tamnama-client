@@ -1,0 +1,70 @@
+> Ready on http://tamnama.nsjsoft.ir:\\.\pipe\70b7feb8-27e0-487c-b591-f9557bede655
+ ○ Compiling /[shopName] ...
+ ✓ Compiled /[shopName] in 10.8s (3474 modules)
+ GET /t-cafe 200 in 13157ms
+ GET /t-cafe 200 in 13186ms
+ ○ Compiling /favicon.ico ...
+ ✓ Compiled /favicon.ico in 1324ms (1800 modules)
+ GET /favicon.ico 200 in 1607ms
+ GET /t-cafe 200 in 384ms
+ GET /favicon.ico 200 in 22ms
+ GET /favicon.ico 200 in 19ms
+ GET /t-cafe 200 in 86ms
+ GET /favicon.ico 200 in 18ms
+ GET /favicon.ico 200 in 30ms
+ GET /t-cafe 200 in 61ms
+ GET /favicon.ico 200 in 18ms
+ GET /favicon.ico 200 in 17ms
+ GET /t-cafe 200 in 87ms
+ GET /favicon.ico 200 in 17ms
+ GET /t-cafe 200 in 85ms
+ GET /favicon.ico 200 in 18ms
+ GET /favicon.ico 200 in 14ms
+ GET /t-cafe 200 in 53ms
+ GET /favicon.ico 200 in 13ms
+ GET /favicon.ico 200 in 15ms
+   Reload env: .env
+ GET /t-cafe 200 in 73ms
+ GET /favicon.ico 200 in 64ms
+ GET /favicon.ico 200 in 10ms
+ ✓ Compiled in 8.7s (3504 modules)
+   Reload env: .env
+ ✓ Compiled in 1857ms (3504 modules)
+ GET /t-cafe 200 in 608ms
+ GET /favicon.ico 200 in 77ms
+ GET /favicon.ico 200 in 20ms
+ ○ Compiling /_not-found ...
+ ✓ Compiled /_not-found in 1335ms (3507 modules)
+ GET /api/client/users/showInfo?name=t-cafe 404 in 1654ms
+ GET /api/client/users/showInfo?name=t-cafe 404 in 73ms
+ GET /t-cafe 200 in 200ms
+ GET /favicon.ico 200 in 34ms
+ GET /favicon.ico 200 in 28ms
+ GET /api/client/users/showInfo?name=t-cafe 404 in 47ms
+ GET /api/client/users/showInfo?name=t-cafe 404 in 50ms
+ GET /api/client/users/showInfo?name=t-cafe 404 in 40ms
+ GET /api/client/users/showInfo?name=t-cafe 404 in 40ms
+ GET /api/client/users/showInfo?name=t-cafe 404 in 50ms
+   Reload env: .env
+ ✓ Compiled in 2.4s (3507 modules)
+ GET /api/client/users/showInfo?name=t-cafe 404 in 1856ms
+ GET /t-cafe 200 in 108ms
+ GET /favicon.ico 200 in 26ms
+ GET /favicon.ico 200 in 20ms
+   Reload env: .env
+ ✓ Compiled in 1792ms (3504 modules)
+ GET /t-cafe 200 in 390ms
+ GET /favicon.ico 200 in 102ms
+ GET /favicon.ico 200 in 33ms
+   Reload env: .env
+ ✓ Compiled in 2.5s (3474 modules)
+ GET /t-cafe 200 in 406ms
+ ✓ Compiled /favicon.ico in 400ms (1800 modules)
+ GET /favicon.ico 200 in 543ms
+ GET /favicon.ico 200 in 17ms
+ GET /t-cafe 200 in 323ms
+ GET /favicon.ico 200 in 25ms
+ GET /favicon.ico 200 in 28ms
+ GET /t-cafe 200 in 89ms
+ GET /favicon.ico 200 in 34ms
+ GET /favicon.ico 200 in 27ms

@@ -39,7 +39,7 @@ function ProductCard({ lightColor, darkColor, data }: productCardProps) {
             >
               {data?.title}
             </p>
-            <p style={{ color: darkColor }} className=" text-white text-sm">
+            <p style={{ color: darkColor }} className=" text-white text-xs">
               {data?.description}
             </p>
           </div>

@@ -198,7 +198,10 @@ function Navbar({ selectedCat }: navbarProps) {
         </div>
 
         {foundedProducts.foundedProduct?.length > 0 && (
-          <div className="w-full flex-col flex gap-y-4 pb-24  h-screen  overflow-y-scroll ">
+          <div
+            className="w-full flex-col flex gap-y-4 h-96
+              overflow-y-scroll rounded-b-lg  rounded-t-lg  "
+          >
             {foundedProducts?.foundedProduct.map((item: Product) => (
               <ProductCard
                 key={item._id}
@@ -210,6 +213,7 @@ function Navbar({ selectedCat }: navbarProps) {
           </div>
         )}
       </div>
+      {/* <div className="absolute bg-gradient-to-t from-white via-white/50 to-gray-50/5 bottom-0 h-12 w-full z-50"></div> */}
     </div>
   );
 }

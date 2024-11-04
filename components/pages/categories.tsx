@@ -234,7 +234,7 @@ function Categories({ selectedCat }: categoriesProps) {
               // variants={container}
               // initial="hidden"
               // animate="visible"
-              className="container grid overflow-y-scroll gap-4  w-full rounded-2xl grid-cols-3  px-10 items-start mt-10 justify-center "
+              className="container grid overflow-y-scroll gap-4 max-h-96 w-full  grid-cols-3  px-10 items-start mt-6 justify-center "
             >
               {getCategory.data?.allCategory?.categories.map(
                 (itemData: any, index: number) => {
